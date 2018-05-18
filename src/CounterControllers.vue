@@ -1,8 +1,8 @@
 <template>
     <div>
         <p>Counter Controllers</p>
-        <button @click.prevent="incrementCounter">Increment</button>
-        <button @click.prevent="decrementCounter">Decrement</button>
+        <button @click.prevent="incrementCounter({step: 10})">Increment</button>
+        <button @click.prevent="decrementCounter({step: 5})">Decrement</button>
     </div>
 </template>
 
@@ -10,11 +10,11 @@
 <script>
     export default {
         methods: {
-            incrementCounter() {
-                this.$store.commit('incrementCounter');
+            incrementCounter(payload) {
+                this.$store.dispatch('incrementCounter', payload);
             },
-            decrementCounter() {
-                this.$store.commit('decrementCounter');
+            decrementCounter(payload) {
+                this.$store.dispatch('decrementCounter', payload);
             }
         }
     }
